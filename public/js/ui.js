@@ -245,9 +245,25 @@ COMPONENT('contenteditable', function() {
 		var fd = new FormData();
 		fd.append('file', value[0]);
 
+		var loading = FIND('loading');
+
+		if (loading)
+			loading.show();
+
 		UPLOAD('/api/upload/', fd, function(response, err) {
-			if (err)
+
+			if (loading)
+				loading.hide(500);
+
+			if (err) {
+				var message = FIND('message');
+				if (message)
+					message.warning(self.attr('data-upload-error') || err.toString());
+				else
+					alert(self.attr('data-upload-error') || err.toString());
 				return;
+			}
+
 			var index = response.url.lastIndexOf('.');
 			var ext = response.url.substring(index + 1);
 			switch (ext) {
@@ -1320,22 +1336,20 @@ COMPONENT('photoupload', function() {
 
 			jC.UPLOAD(self.attr('data-url'), data, function(response, err) {
 
+				if (loading)
+					loading.hide(500);
+
 				if (err) {
-					if (loading)
-						loading.hide();
 					var message = FIND('message');
 					if (message)
-						message.warning(self.attr('data-error') || err.toString());
+						message.warning(self.attr('data-upload-error') || err.toString());
 					else
-						alert(self.attr('data-error') || err.toString());
+						alert(self.attr('data-upload-error') || err.toString());
 					return;
 				}
 
 				self.change();
 				el.value = '';
-
-				if (loading)
-					loading.hide(500);
 			});
 		});
 	};

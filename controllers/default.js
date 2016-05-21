@@ -1,6 +1,6 @@
 exports.install = function() {
-	F.route('/{id}/', 'app');
-	F.route('/', 'app');
+	F.route('/');
+	F.route('/{id}/', 'index');
 	F.file('/upload/*.*', file);
 	F.file('/photos/*.jpg', photo);
 };
