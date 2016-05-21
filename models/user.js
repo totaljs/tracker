@@ -34,6 +34,7 @@ NEWSCHEMA('User').make(function(schema) {
 			return callback();
 		}
 
+		model.hostname = controller.uri.hostname;
 		model.pin = U.GUID(4).toUpperCase();
 		PIN[model.pin] = model;
 
