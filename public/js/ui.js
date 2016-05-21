@@ -1037,6 +1037,7 @@ COMPONENT('template', function() {
 			return self.element.addClass('hidden');
 		KEYPRESS(function() {
 			self.html(self.template(value)).removeClass('hidden');
+			COMPILE(100);
 		}, 100, self.id);
 	};
 });
@@ -1348,7 +1349,7 @@ COMPONENT('photoupload', function() {
 					return;
 				}
 
-				self.change();
+				self.find('img').attr('src', Tangular.helpers.photo(user.email) + '?ts=' + Date.now());
 				el.value = '';
 			});
 		});

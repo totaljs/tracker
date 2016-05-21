@@ -25,6 +25,11 @@ function file(req, res) {
 function photo(req, res) {
 	var id = req.split[2];
 	var path = F.path.public(req.url.substring(1));
+
+	var index = path.lastIndexOf('?');
+	if (index !== -1)
+		path = path.substring(0, index);
+
 	F.path.exists(path, function(e) {
 		if (e)
 			res.file(path);
