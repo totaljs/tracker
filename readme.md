@@ -1,10 +1,17 @@
 # Free and simple open-source Issue Tracker
 
-__Requirements__:
+- [Try DEMO](http://tracker.totaljs.com)
 
+__Requirements__:
 - node.js platform +v4
 - total.js +v2 `npm install total.js@beta`
-- SMTP sender __open `config`__
+- SMTP sender
+
+__Technology__:
+- NoSQL embedded database
+- jQuery
+- jComponent
+- Bootstrap Grid System
 
 ## How does it works?
 
