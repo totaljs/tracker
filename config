@@ -1,0 +1,22 @@
+name                            : Issue Tracker
+author                          : Peter Širka
+version                         : 1.0.0
+secret                          : secret-key-for-web
+
+// Mail settings
+mail.smtp                       : smtp.gmail.com
+mail.smtp.options               : {"port":465,"secure":true,"user":"ENTER_YOUR_EMAIL","password":"ENTER_YOUR_PASSWORD","rejectUnauthorized":true}
+mail.address.from               : ENTER_YOUR_EMAIL
+mail.address.reply              : ENTER_YOUR_EMAIL
+
+// "true" trackers and issues will shown according to the hostname with except "hostname" config's value
+issues-according-hostname       : true
+
+// main hostname
+hostname                        : 127.0.0.1:8000
+
+// ";" is a divider
+members                         : Peter Širka|petersirka@gmail.com;Your name|your@email.com;Your name 2|your2@email.com
+
+// ";" is a divider or '*' for all members
+members-allowed                 : *
