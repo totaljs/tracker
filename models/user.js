@@ -1,6 +1,6 @@
 const COOKIE = '_utracker';
 const SECRET = 'TrACKER';
-const PIN = {};
+var PIN = {};
 
 // Can prevent cleaning created PIN
 var CLEAN = true;
